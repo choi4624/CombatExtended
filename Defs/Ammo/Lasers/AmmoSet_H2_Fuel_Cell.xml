@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
   <!-- ===== ThingCategory (KR: 분류 정의 / EN: item category) ===== -->
   <ThingCategoryDef>
     <defName>AmmoCategory_H2_Fuel_Cell</defName>
@@ -40,7 +39,6 @@
       <li>AmmoCategory_H2_Fuel_Cell</li>
     </thingCategories>
   </ThingDef>
-
 
 <!--
 KR) AmmoSet 구현 의도
@@ -93,8 +91,6 @@ EN) Intent of this AmmoSet
     - Projectiles use a hybrid damage model: "penetration (Bullet) + laser thermal damage (CE_Laser/Burn)", enabling other mods to easily adopt various damage profiles.
     - Important: Only one `AmmoSet` profile should be assigned to each weapon to prevent unintended overpowered configurations.
 -->
-
-
 
   <!-- ===== AmmoSet ===== -->
   <CombatExtended.AmmoSetDef>
@@ -161,7 +157,6 @@ EN) Intent of this AmmoSet
     </projectile>
   </ThingDef>
   
-
   <!-- 
     important: This projectile type consider can use 3 or more cells in one shot. This can be defined in Each weaponDef.
     If shot single cell is not a problem, but it is important to consider balence of maintaince and cost. Increase MagazineSize is a good idea.
@@ -188,7 +183,6 @@ EN) Intent of this AmmoSet
         </projectile>
       </ThingDef>
       
-
   <!-- 
     important: This projectile type consider can use 36 or more cells in one shot. This can be defined in Each weaponDef.
     If shot single cell is not a problem, but it is important to consider balence of maintaince and cost. Increase MagazineSize is a good idea.
