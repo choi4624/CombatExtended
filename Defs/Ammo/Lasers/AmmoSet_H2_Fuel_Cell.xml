@@ -41,7 +41,42 @@
     </thingCategories>
   </ThingDef>
 
-  <!-- ===== AmmoSet (KR: 같은 Ammo → 다른 탄도 / EN: same ammo → different projectile) ===== -->
+
+<!--
+KR) AmmoSet 구현 의도
+- 전체적인 설계
+    - 공용 탄약(Ammo_H2_Fuel_Cell) 1종만 사용하고, 무기군별 특성은 Projectile 매핑으로 분리한다.
+    - AmmoSet은 "AmmoDef → Projectile" 매핑 역할을 하며, 무기(CompAmmoUser.ammoSet)가 어떤 프로파일(assault/support/AMR)을 쓸지 선택한다.
+    - 필요한 경우 해당 ammo(Ammo_H2_Fuel_Cell)를 바탕으로 한 새로운 AmmoSet과 Projectile을 만드는 것을 권장함.
+    - 무기의 파워는 개별 ammoSet 자체로 결정하지 않고, ammoSet 내부의 "ammoTypes" Projectile 매핑으로 결정한다.
+    - 해당 무기가 어떤 ammoSet을 사용하는지 결정하여 무기의 파워를 결정할 수 있도록 한다.
+    - 물류/관리 밸런스는 '탄약'이 아니라 '무기'에 둔다: 발당 소모(n셀), 연사/버스트, 장탄수, 재장전/쿨다운은 WeaponDef에서 조정하여 결정한다. 
+    - 무기의 화력 설정은 현실 물리 수치를 어느 정도 고려하여 설계한다. 20,000 Wh/kg 값은 연료전지의 이론적 최대치(33,000 Wh/kg)의 약 60% 수준이다.
+    - 예를들어, 질량 3.5g의 셀 1개는, 인게임 기준으로 20mm RHA를 약 1cm 지름으로 관통할 수 있는 수준의 무기 에너지에 해당된다.
+    - 
+
+- 설계 목적
+    - 이 설계는 모드 간 탄약 난립을 막고, 호환성을 유지하면서도 무기별 개성을 유지하는데 목적을 둔다. 기본적으로 CE 에서 제공하는 레시피는 "가능한 적절한 수준으로 비싸게 유지한다."
+    - 이는 개별 모드들의 방식으로 이 cell을 제작하는게 "유리하도록 조정할 여지를" 남긴다.
+    - 만약, 모드들이 이 Cell을 제작하는게 적절하지 않다고 판단하는 경우에도, 우주 시대의 레이저 무기들에 대한 표준화된 로지스틱 레벨을 제안하는데 목적을 둠.
+    - 또한, 해당 무기가 어떤 역할을 가지는지를 대략적인 표준화 레벨을 제안하는 것 또한 중요. 우주 시대의 비장갑 - 경장갑 - 중장갑 수준의 무기 화력은 어느 정도 수준이 적절한지.
+    - Projectile은 "관통(Bullet) + 레이저 열상(CE_Laser/Burn)" 복합 대미지 모델을 사용하여, 다른 모드가 다양한 대미지 프로파일을 사용하는게 충분히 가능함을 인지한다.
+    - 주의: 무기를 정의할 때 아래 ammoset 프로필 중 1개만 지정해야 함.
+
+- 레이저 무기의 특성은 WarHammer 40k 레이저 무기의 특성과 유사함. 장갑 관통이 안되는 상대에게는 거의 대미지가 가해지지 않음.
+
+EN) Intent of this AmmoSet
+- Use a single shared ammo (Ammo_H2_Fuel_Cell); separate weapon-family behavior via projectile mapping.
+- In CE, an AmmoSet maps "AmmoDef → Projectile", and the weapon (CompAmmoUser.ammoSet) selects which profile (assault/support/AMR) it uses.
+- Balance knobs live on the weapon, not the ammo: per-shot cell consumption, burst/ROF, magazine size, reload/cooldown are defined in WeaponDef.
+- This prevents ammo proliferation across mods while keeping compatibility and clear weapon identity.
+- Projectiles implement a hybrid damage model: primary penetration (Bullet) + secondary laser burn (CE_Laser/Burn).
+- Note: ammoClass must match the weapon; do not set cookOffProjectile (intended behavior: no explosive cook-off, quick degradation on damage).
+-->
+
+
+
+  <!-- ===== AmmoSet ===== -->
   <CombatExtended.AmmoSetDef>
     <defName>AmmoSet_Laser_Rifle_H2</defName>
     <label>H2 fuel cell (rifle)</label>
@@ -51,14 +86,22 @@
   </CombatExtended.AmmoSetDef>
 
   <CombatExtended.AmmoSetDef>
-    <defName>AmmoSet_Laser_Heavy_H2</defName>
-    <label>H2 fuel cell (heavy)</label>
+    <defName>AmmoSet_Laser_Squad_Support_H2</defName>
+    <label>H2 fuel cell (squad support)</label>
     <ammoTypes>
-      <Ammo_H2_Fuel_Cell>Proj_H2_Fuel_Cell_Heavy</Ammo_H2_Fuel_Cell>
+      <Ammo_H2_Fuel_Cell>Proj_H2_Fuel_Cell_Squad_Support</Ammo_H2_Fuel_Cell>
     </ammoTypes>
   </CombatExtended.AmmoSetDef>
 
-  <!-- ===== Projectile base (KR: 공용 베이스 / EN: shared base) ===== -->
+  <CombatExtended.AmmoSetDef>
+    <defName>AmmoSet_Laser_AMR_H2</defName>
+    <label>H2 fuel cell (anti-materiel)</label>
+    <ammoTypes>
+      <Ammo_H2_Fuel_Cell>Proj_H2_Fuel_Cell_Anti_Materiel</Ammo_H2_Fuel_Cell>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+
+  <!-- ===== Projectile base ===== -->
 <ThingDef Name="Proj_H2_Fuel_Cell_Base" ParentName="BaseBulletCE" Abstract="True">
     <graphicData>
       <texPath>Things/Projectile/Charged/ChargeLanceShot</texPath>
@@ -71,7 +114,7 @@
     </projectile>
   </ThingDef>
   
-  <!-- ===== Rifle profile: 현대 보병 수준의 교전 능력 / Small puncture + laser burn ===== -->
+  <!-- ===== Rifle profile: 현대 보병 수준의 교전 능력 / modern infantry level combat capability ===== -->
   <ThingDef ParentName="Proj_H2_Fuel_Cell_Base">
     <defName>Proj_H2_Fuel_Cell_Rifle</defName>
     <label>H2 fuel cell rifle beam</label>
@@ -104,7 +147,8 @@
     If shot single cell is not a problem, but it is important to consider balence of maintaince and cost. Increase MagazineSize is a good idea.
   -->
 
-    <!-- ===== Squad Support profile: 제한된 장갑 표적에 대한 대응, 화력 지원무기 / Deeper pen + larger burn ===== -->
+    <!-- ===== Squad Support profile: 제한된 장갑화된 표적에 대한 대응, 화력 지원무기 / limited anti-armor, firepower support weapon ===== -->
+    <!-- Have purpose to target on penetrate cataphract armor -->
     <ThingDef ParentName="Proj_H2_Fuel_Cell_Base">
         <defName>Proj_H2_Fuel_Cell_Squad_Support</defName>
         <label>H2 fuel cell squad support beam</label>
@@ -130,7 +174,8 @@
     If shot single cell is not a problem, but it is important to consider balence of maintaince and cost. Increase MagazineSize is a good idea.
   -->
 
-  <!-- ===== Anti-Materiel profile: 대 차량, 중장갑 대상 / Deeper pen + larger burn ===== -->
+  <!-- ===== Anti-Materiel profile: 대 차량, 중장갑 대상 / anti-vehicle, heavy armor target ===== -->
+  <!-- Have purpose to target on modded 100mm armor, vehicle or any other extreme level armor can fight with in spacer tech-->
   <ThingDef ParentName="Proj_H2_Fuel_Cell_Base">
     <defName>Proj_H2_Fuel_Cell_Anti_Materiel</defName>
     <label>H2 fuel cell anti-materiel beam</label>
@@ -144,7 +189,7 @@
       <secondaryDamage>
         <li>
           <def>CE_Laser</def>
-          <amount>382</amount>
+          <amount>114</amount>
         </li>
       </secondaryDamage>
     </projectile>
