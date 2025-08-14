@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingCategoryDef>
+    <defName>AmmoCategory_H2_Fuel_Cell</defName>
+    <label>H2 Fuel Cell</label>
+    <parent>AmmoAdvanced</parent>
+    <iconPath>UI/Icons/ThingCategories/CaliberPlasmaLarge</iconPath>
+  </ThingCategoryDef>
+  <CombatExtended.AmmoSetDef>
+    <defName>AmmoSet_H2_Fuel_Cell</defName>
+    <label>H2 Fuel Cell</label>
+    <ammoTypes>
+      <Ammo_H2_Fuel_Cell_Basic_Charge>Bullet_H2_Fuel_Cell_Basic_Charge</Ammo_H2_Fuel_Cell_Basic_Charge>
+      <Ammo_H2_Fuel_Cell_MG_Charge>Bullet_H2_Fuel_Cell_MG_Charge</Ammo_H2_Fuel_Cell_MG_Charge>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+  <ThingDef Class="CombatExtended.AmmoDef" Name="Ammo_H2_Fuel_Cell_Base" ParentName="SpacerAmmoBase" Abstract="True">
+    <description>A basic disposable H₂+O₂ fuel cell for energy weapons. Can be used as ammunition itself or as a crafting material for other energy-based weapon systems.</description>
+    <statBases>
+      <Mass>0.004</Mass>
+      <Bulk>0.002</Bulk>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting</li>
+      <li>CE_AutoEnableCrafting_FabricationBench</li>
+    </tradeTags>
+    <thingCategories>
+      <li>AmmoCategory_H2_Fuel_Cell</li>
+    </thingCategories>
+  </ThingDef>
+  <ThingDef Name="Bullet_H2_Fuel_Cell_Base" ParentName="BaseBulletCE" Abstract="True">
+    <graphicData>
+      <texPath>Things/Projectile/Charged/ChargeLanceShot</texPath>
+      <graphicClass>Verse.Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <speed>650</speed>
+      <damageDef>Bullet</damageDef>
+      <dropsCasings>true</dropsCasings>
+    </projectile>
+  </ThingDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_H2_Fuel_Cell_Base">
+    <defName>Ammo_H2_Fuel_Cell_Basic_Charge</defName>
+    <label>H2_Fuel_Cell Low_charge</label>
+    <graphicData>
+      <texPath>Things/Ammo/LaserPack</texPath>
+      <graphicClass>Verse.Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>Laser</ammoClass>
+    <cookOffProjectile>Bullet_H2_Fuel_Cell_Basic_Charge</cookOffProjectile>
+  </ThingDef>
+  <ThingDef ParentName="Bullet_H2_Fuel_Cell_Base">
+    <defName>Bullet_H2_Fuel_Cell_Basic_Charge</defName>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>6</damageAmountBase>
+      <damageDef>Cinder_ExtraBullet</damageDef>
+      <armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+      <armorPenetrationSharp>22</armorPenetrationSharp>
+      <secondaryDamage>
+        <li>
+          <def>CE_Laser</def>
+          <amount>14</amount>
+        </li>
+      </secondaryDamage>
+      <suppressionFactor>0.2</suppressionFactor>
+      <stoppingPower>0.1</stoppingPower>
+    </projectile>
+  </ThingDef>
+  <RecipeDef ParentName="AmmoRecipeBase">
+    <defName>MakeAmmo_H2_Fuel_Cell_Basic_Charge</defName>
+    <label>ṁàкè H2_Fuel_Cell çàṟṭṟìðğè ẋ1000</label>
+    <description>CṟàƑṭ 1000 H2_Fuel_Cell çàṟṭṟìðğèș.</description>
+    <jobString>Màкìƞğ H2_Fuel_Cell çàṟṭṟìðğèș.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </filter>
+        <count>1000</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Chemfuel</li>
+        <li>ComponentIndustrial</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Ammo_H2_Fuel_Cell_Basic_Charge>1000</Ammo_H2_Fuel_Cell_Basic_Charge>
+    </products>
+    <workAmount>6000</workAmount>
+  </RecipeDef>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_H2_Fuel_Cell_Base">
+    <defName>Ammo_H2_Fuel_Cell_MG_Charge</defName>
+    <label>H2_Fuel_Cell MachineGun Charged</label>
+    <graphicData>
+      <texPath>Things/Ammo/LaserPack</texPath>
+      <graphicClass>Verse.Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>Laser</ammoClass>
+    <cookOffProjectile>Bullet_H2_Fuel_Cell_MG_Charge</cookOffProjectile>
+  </ThingDef>
+  <ThingDef ParentName="Bullet_H2_Fuel_Cell_Base">
+    <defName>Bullet_H2_Fuel_Cell_MG_Charge</defName>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>12</damageAmountBase>
+      <armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+      <armorPenetrationSharp>42</armorPenetrationSharp>
+      <secondaryDamage>
+        <li>
+          <def>CE_Laser</def>
+          <amount>36</amount>
+        </li>
+      </secondaryDamage>
+      <suppressionFactor>0.2</suppressionFactor>
+      <stoppingPower>0.1</stoppingPower>
+      <pelletCount>4</pelletCount>
+    </projectile>
+  </ThingDef>
+  <RecipeDef ParentName="AdvancedAmmoRecipeBase">
+    <defName>MakeAmmo_H2_Fuel_Cell_MG_Charge</defName>
+    <label>ṁàкè H2_Fuel_Cell çàṟṭṟìðğè ẋ1000</label>
+    <description>CṟàƑṭ 1000 H2_Fuel_Cell çàṟṭṟìðğèș.</description>
+    <jobString>Màкìƞğ H2_Fuel_Cell çàṟṭṟìðğèș.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </filter>
+        <count>1000</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Chemfuel</li>
+        <li>ComponentIndustrial</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Ammo_H2_Fuel_Cell_MG_Charge>1000</Ammo_H2_Fuel_Cell_MG_Charge>
+    </products>
+    <workAmount>6000</workAmount>
+  </RecipeDef>
+</Defs>
