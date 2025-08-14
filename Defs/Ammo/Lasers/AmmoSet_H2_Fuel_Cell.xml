@@ -2,40 +2,35 @@
 <Defs>
 
   <!-- ===== ThingCategory ===== -->
-  <ThingCategoryDef>
-    <defName>AmmoCategory_H2_Fuel_Cell</defName>
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="SpacerAmmoBase">
+    <defName>Ammo_H2_Fuel_Cell</defName>
     <label>H2 fuel cell</label>
-    <parent>AmmoAdvanced</parent>
-    <iconPath>UI/Icons/ThingCategories/CaliberPlasmaLarge</iconPath>
-  </ThingCategoryDef>
-
-  <!-- ===== AmmoSet (공용 H2 셀 -> 무기별로 다른 탄도 매핑 용) ===== -->
-  <CombatExtended.AmmoSetDef>
-    <defName>AmmoSet_H2_Fuel_Cell</defName>
-    <label>H2 fuel cell</label>
-    <ammoTypes>
-      <Ammo_H2_Fuel_Cell_Basic>Proj_H2_Fuel_Cell_Basic</Ammo_H2_Fuel_Cell_Basic>
-      <Ammo_H2_Fuel_Cell_MG>Proj_H2_Fuel_Cell_MG</Ammo_H2_Fuel_Cell_MG>
-    </ammoTypes>
-  </CombatExtended.AmmoSetDef>
-
-  <!-- ===== Ammo Base ===== -->
-  <ThingDef Class="CombatExtended.AmmoDef" Name="Ammo_H2_Fuel_Cell_Base" ParentName="SpacerAmmoBase" Abstract="True">
-    <description>A basic disposable H2+O2 fuel cell for energy weapons. Can be used as ammunition itself or as a crafting material for other energy-based weapon systems.</description>
+    <ammoClass>Laser</ammoClass> <!-- match weapon's CompAmmoUser -->
     <statBases>
-      <Mass>0.0035</Mass>        <!-- // 3.5 g per cell -->
+      <Mass>0.0035</Mass> <!-- 3.5 g per cell -->
       <Bulk>0.002</Bulk>
     </statBases>
-    <stackLimit>5000</stackLimit>
-    <tradeTags>
-      <li>CE_AutoEnableTrade</li>
-      <li>CE_AutoEnableCrafting</li>
-      <li>CE_AutoEnableCrafting_FabricationBench</li>
-    </tradeTags>
     <thingCategories>
       <li>AmmoCategory_H2_Fuel_Cell</li>
     </thingCategories>
   </ThingDef>
+  
+  <!-- ===== AmmoSet in WeaponDef===== -->
+  <CombatExtended.AmmoSetDef>
+    <defName>AmmoSet_Laser_Rifle_H2</defName>
+    <label>H2 fuel cell (rifle)</label>
+    <ammoTypes>
+      <Ammo_H2_Fuel_Cell>Proj_H2_Fuel_Cell_Basic</Ammo_H2_Fuel_Cell>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+
+  <CombatExtended.AmmoSetDef>
+    <defName>AmmoSet_Laser_Heavy_H2</defName>
+    <label>H2 fuel cell (heavy)</label>
+    <ammoTypes>
+      <Ammo_H2_Fuel_Cell>Proj_H2_Fuel_Cell_MG</Ammo_H2_Fuel_Cell>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
 
   <!-- ===== Projectile Base ===== -->
   <ThingDef Name="Proj_H2_Fuel_Cell_Base" ParentName="BaseBulletCE" Abstract="True">
@@ -49,7 +44,7 @@
     </projectile>
   </ThingDef>
 
-  <!-- ===== Ammo/Projectile: Basic ===== -->
+  <!-- ===== Projectile: Basic ===== -->
   <ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_H2_Fuel_Cell_Base">
     <defName>Ammo_H2_Fuel_Cell_Basic</defName>
     <label>H2 fuel cell (basic)</label>
@@ -73,7 +68,7 @@
     </projectile>
   </ThingDef>
 
-  <!-- ===== Ammo/Projectile: MG (무기에서 burst로 사용. pelletCount 제거) ===== -->
+  <!-- ===== Projectile: MG ===== -->
   <ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_H2_Fuel_Cell_Base">
     <defName>Ammo_H2_Fuel_Cell_MG</defName>
     <label>H2 fuel cell (heavy)</label>
@@ -123,33 +118,6 @@
       <Ammo_H2_Fuel_Cell_Basic>1000</Ammo_H2_Fuel_Cell_Basic>
     </products>
     <workAmount>12000</workAmount>
-  </RecipeDef>
-
-  <RecipeDef ParentName="AdvancedAmmoRecipeBase">
-    <defName>MakeAmmo_H2_Fuel_Cell_Heavy</defName>
-    <label>make H2 fuel cell (heavy) x1000</label>
-    <description>Craft 1000 heavy H2 fuel cells.</description>
-    <jobString>Making heavy H2 fuel cells.</jobString>
-    <ingredients>
-      <li>
-        <filter><thingDefs><li>Chemfuel</li></thingDefs></filter>
-        <count>1000</count>
-      </li>
-      <li>
-        <filter><thingDefs><li>ComponentSpacer</li></thingDefs></filter>
-        <count>2</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>Chemfuel</li>
-        <li>ComponentSpacer</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <products>
-      <Ammo_H2_Fuel_Cell_MG>1000</Ammo_H2_Fuel_Cell_MG>
-    </products>
-    <workAmount>16000</workAmount>
   </RecipeDef>
 
 </Defs>
