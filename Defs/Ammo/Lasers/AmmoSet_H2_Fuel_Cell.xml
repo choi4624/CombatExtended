@@ -27,16 +27,18 @@
         Unlike many high-energy materials, it does not explode when damaged, but damage will quickly render the entire cartridge unusable.
         * Produces distilled water as a byproduct after use. Not intended for consumption or reuse — dispose properly.
     </description>
-    <ammoClass>Laser</ammoClass> <!-- KR: 무기 CompAmmoUser와 동일 / EN: must match weapon -->
+    <ammoClass>Laser</ammoClass> <!-- Projectile define RealDamage -->
     <statBases>
       <Mass>0.0035</Mass>  <!-- 3.5 g/ea -->
-      <Bulk>0.002</Bulk>
+      <Bulk>0.003</Bulk>
+      <MaxHitPoints>20</MaxHitPoints>  <!-- fragile so it breaks quickly -->
+      <Flammability>0.2</Flammability> <!-- burns away instead of cooking off -->
+      <DeteriorationRate>0.05</DeteriorationRate> <!-- natural deterioration rate is low -->
     </statBases>
     <stackLimit>5000</stackLimit>
     <thingCategories>
       <li>AmmoCategory_H2_Fuel_Cell</li>
     </thingCategories>
-    <!-- KR: cookOffProjectile은 선택 / EN: cookoff is optional -->
   </ThingDef>
 
   <!-- ===== AmmoSet (KR: 같은 Ammo → 다른 탄도 / EN: same ammo → different projectile) ===== -->
@@ -56,41 +58,95 @@
     </ammoTypes>
   </CombatExtended.AmmoSetDef>
 
-  <!-- ===== Projectile base (KR: CE_Laser 없으면 Burn 사용 / EN: fallback to Burn if missing) ===== -->
-  <ThingDef Name="Proj_H2_Fuel_Cell_Base" ParentName="BaseBulletCE" Abstract="True">
+  <!-- ===== Projectile base (KR: 공용 베이스 / EN: shared base) ===== -->
+<ThingDef Name="Proj_H2_Fuel_Cell_Base" ParentName="BaseBulletCE" Abstract="True">
     <graphicData>
       <texPath>Things/Projectile/Charged/ChargeLanceShot</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <projectile Class="CombatExtended.ProjectilePropertiesCE">
-      <speed>160</speed>                 <!-- KR: 연출용 / EN: visuals only -->
-      <damageDef>CE_Laser</damageDef>    <!-- KR: 없으면 Burn / EN: use Burn if not present -->
+      <speed>600</speed>
+      <!-- KR: 주 대미지는 '관통'으로 처리 / EN: do penetration as primary -->
+      <damageDef>Bullet</damageDef>
     </projectile>
   </ThingDef>
-
-  <!-- ===== Projectile: Rifle (KR: 소총용 기본 탄도 / EN: rifle profile) ===== -->
+  
+  <!-- ===== Rifle profile: 현대 보병 수준의 교전 능력 / Small puncture + laser burn ===== -->
   <ThingDef ParentName="Proj_H2_Fuel_Cell_Base">
     <defName>Proj_H2_Fuel_Cell_Rifle</defName>
     <label>H2 fuel cell rifle beam</label>
     <projectile Class="CombatExtended.ProjectilePropertiesCE">
-      <damageAmountBase>18</damageAmountBase>
-      <armorPenetrationSharp>10</armorPenetrationSharp>
-      <armorPenetrationBlunt>0.2</armorPenetrationBlunt>
-      <suppressionFactor>0.15</suppressionFactor>
+      <!-- KR: 작은 관통 상처 / EN: small puncture -->
+      <damageAmountBase>8</damageAmountBase>
+      <armorPenetrationSharp>22</armorPenetrationSharp>
+      <armorPenetrationBlunt>0.05</armorPenetrationBlunt>
       <stoppingPower>0.05</stoppingPower>
+      <suppressionFactor>0.07</suppressionFactor>
+  
+      <!-- KR: 추가 레이저 화상 / EN: extra laser burn -->
+      <secondaryDamage>
+        <li>
+          <def>CE_Laser</def>
+          <amount>14</amount>
+        </li>
+        <!-- 화상 피해를 추가하고자 한다면 추가 / if you want to add flame damage, add it here
+        <li>
+          <def>Flame</def>
+          <amount>2</amount>
+        </li> -->
+      </secondaryDamage>
     </projectile>
   </ThingDef>
+  
 
-  <!-- ===== Projectile: Heavy (KR: 중화기용 강화 탄도 / EN: heavy profile) ===== -->
+  <!-- 
+    important: This projectile type consider can use 3 or more cells in one shot. This can be defined in Each weaponDef.
+    If shot single cell is not a problem, but it is important to consider balence of maintaince and cost. Increase MagazineSize is a good idea.
+  -->
+
+    <!-- ===== Squad Support profile: 제한된 장갑 표적에 대한 대응, 화력 지원무기 / Deeper pen + larger burn ===== -->
+    <ThingDef ParentName="Proj_H2_Fuel_Cell_Base">
+        <defName>Proj_H2_Fuel_Cell_Squad_Support</defName>
+        <label>H2 fuel cell squad support beam</label>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+          <damageAmountBase>12</damageAmountBase>
+          <armorPenetrationSharp>44</armorPenetrationSharp>
+          <armorPenetrationBlunt>0.05</armorPenetrationBlunt>
+          <stoppingPower>0.08</stoppingPower>
+          <suppressionFactor>0.15</suppressionFactor>
+      
+          <secondaryDamage>
+            <li>
+              <def>CE_Laser</def>
+              <amount>44</amount>
+            </li>
+          </secondaryDamage>
+        </projectile>
+      </ThingDef>
+      
+
+  <!-- 
+    important: This projectile type consider can use 25 or more cells in one shot. This can be defined in Each weaponDef.
+    If shot single cell is not a problem, but it is important to consider balence of maintaince and cost. Increase MagazineSize is a good idea.
+  -->
+
+  <!-- ===== Anti-Materiel profile: 대 차량, 중장갑 대상 / Deeper pen + larger burn ===== -->
   <ThingDef ParentName="Proj_H2_Fuel_Cell_Base">
-    <defName>Proj_H2_Fuel_Cell_Heavy</defName>
-    <label>H2 fuel cell heavy beam</label>
+    <defName>Proj_H2_Fuel_Cell_Anti_Materiel</defName>
+    <label>H2 fuel cell anti-materiel beam</label>
     <projectile Class="CombatExtended.ProjectilePropertiesCE">
-      <damageAmountBase>28</damageAmountBase>
-      <armorPenetrationSharp>18</armorPenetrationSharp>
-      <armorPenetrationBlunt>0.3</armorPenetrationBlunt>
-      <suppressionFactor>0.20</suppressionFactor>
-      <stoppingPower>0.10</stoppingPower>
+      <damageAmountBase>180</damageAmountBase>
+      <armorPenetrationSharp>225</armorPenetrationSharp>
+      <armorPenetrationBlunt>0.05</armorPenetrationBlunt>
+      <stoppingPower>1.5</stoppingPower>
+      <suppressionFactor>1</suppressionFactor>
+  
+      <secondaryDamage>
+        <li>
+          <def>CE_Laser</def>
+          <amount>382</amount>
+        </li>
+      </secondaryDamage>
     </projectile>
   </ThingDef>
 
