@@ -56,7 +56,6 @@ KR) AmmoSet 구현 의도
         이 값들은 WeaponDef에서 조정하여 결정한다. 
     - 무기의 화력 설정은 현실 물리 수치를 어느 정도 고려하여 설계한다. 20,000 Wh/kg 값은 연료전지의 이론적 최대치(33,000 Wh/kg)의 약 60% 수준이다.
     - 예를들어, 질량 3.5g의 셀 1개는, 인게임 기준으로 20mm RHA를 약 1mm 지름으로 관통할 수 있는 수준의 무기 에너지에 해당된다.
-    - 
 
 - 설계 목적
     - 이 설계는 모드 간 탄약 난립을 막고, 호환성을 유지하면서도 무기별 개성을 유지하는데 목적을 둔다. 기본적으로 CE 에서 제공하는 레시피는 "가능한 적절한 수준으로 비싸게 유지한다."
@@ -118,16 +117,34 @@ EN) Intent of this AmmoSet
   </CombatExtended.AmmoSetDef>
 
   <!-- ===== Projectile base ===== -->
-<ThingDef Name="Proj_H2_Fuel_Cell_Base" ParentName="BaseBulletCE" Abstract="True">
+  <ThingDef Class="CombatExtended.Lasers.LaserBeamDefCE" Name="Proj_H2_Fuel_Cell_Base" ParentName="BaseLaserBullet" Abstract="True">
+    <thingClass>CombatExtended.Lasers.LaserBeamCE</thingClass>
+    <label>Fuel Cell Laser</label>
     <graphicData>
-      <texPath>Things/Projectile/Charged/ChargeLanceShot</texPath>
+      <texPath>Things/Projectile/Laser_CE</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+      <drawSize>1.5</drawSize>
     </graphicData>
+
+    <altitudeLayer>Projectile</altitudeLayer>
+    <beamGraphic>BeamGraphic</beamGraphic>
+    <seam>0</seam>
     <projectile Class="CombatExtended.ProjectilePropertiesCE">
-      <speed>600</speed>
-      <!-- KR: 주 대미지는 '관통'으로 처리 / EN: do penetration as primary -->
-      <damageDef>Bullet</damageDef>
+      <isInstant>true</isInstant>
+      <damageDef>CE_Laser</damageDef>
     </projectile>
+
+    <modExtensions>
+      <li Class="ProjectileImpactFX.EffectProjectileExtension">
+        <AutoAssign>true</AutoAssign>
+        <CreateTerrainEffects>false</CreateTerrainEffects>
+        <explosionFleckDef>YellowSparkFlash</explosionFleckDef>
+        <explosionFleckSize>1</explosionFleckSize>
+        <ImpactGlowFleckDef>ExplosionFlash</ImpactGlowFleckDef>
+        <ImpactGlowFleckSize>2.5</ImpactGlowFleckSize>
+      </li>
+    </modExtensions>
   </ThingDef>
   
   <!-- ===== Rifle profile: 현대 보병 수준의 교전 능력 / modern infantry level combat capability ===== -->
