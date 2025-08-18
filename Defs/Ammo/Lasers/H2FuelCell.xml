@@ -4,7 +4,7 @@
   <ThingCategoryDef>
     <defName>AmmoCategory_H2_Fuel_Cell</defName>
     <label>H2 fuel cell</label>
-    <parent>AmmoAdvanced</parent>
+    <parent>AmmoLaser</parent>
     <iconPath>UI/Icons/ThingCategories/CaliberPlasmaLarge</iconPath>
   </ThingCategoryDef>
 

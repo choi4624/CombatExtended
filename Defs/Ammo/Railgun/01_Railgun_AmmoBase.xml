@@ -9,7 +9,7 @@
             <Bulk>0.01</Bulk>
         </statBases>
         <thingCategories>
-          <li>AmmoAdvanced</li>
+          <li>AmmoRailgun</li>
         </thingCategories>
         <tradeTags>
             <li>CE_AutoEnableTrade</li>

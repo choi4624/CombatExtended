@@ -17,6 +17,20 @@
 	</ThingCategoryDef>
 
 	<ThingCategoryDef>
+		<defName>AmmoRailgun</defName>
+		<label>railgun</label>
+		<parent>Ammo</parent>
+		<iconPath>UI/Icons/ThingCategories/AmmoRailgun</iconPath>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>AmmoLaser</defName>
+		<label>laser</label>
+		<parent>Ammo</parent>
+		<iconPath>UI/Icons/ThingCategories/AmmoLaser</iconPath>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef>
 		<defName>AmmoGrenades</defName>
 		<label>grenade</label>
 		<parent>Ammo</parent>
