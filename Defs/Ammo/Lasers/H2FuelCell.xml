@@ -4,7 +4,7 @@
   <ThingCategoryDef>
     <defName>AmmoCategory_H2_Fuel_Cell</defName>
     <label>H2 fuel cell</label>
-    <parent>AmmoLaser</parent>
+    <parent>AmmoAdvanced</parent>
     <iconPath>UI/Icons/ThingCategories/CaliberPlasmaLarge</iconPath>
   </ThingCategoryDef>
 
@@ -19,13 +19,9 @@
     다른 고 에너지 저장 재료와 다르게, 이 물질은 손상되어도 폭발하지 않으나, 손상이 발생하면 매우 빠르게 전체 셀 카트리지가 사용할 수 없게 됩니다.
     * 사용 후 증류수를 만들지만, 마시거나 또는 다른 용도로 사용하지 마세요. 그냥 버리세요.
     -->
-    <description>
-        A spacer-tech disposable H2+O2 fuel cell utilizing advanced nano-storage technology, capable of storing up to 20,000 Wh/kg. 
-        Used as ammunition for energy weapons, it can also serve as a high-energy component for railgun, plasma, and ion systems.
-
-        Unlike many high-energy materials, it does not explode when damaged, but damage will quickly render the entire cartridge unusable.
-        * Produces distilled water as a byproduct after use. Not intended for consumption or reuse — dispose properly.
-    </description>
+    <description>A spacer-tech disposable H2+O2 fuel cell utilizing advanced nano-storage technology, capable of storing up to 20,000 Wh/kg. Used as ammunition for energy weapons, it can also serve as a high-energy component for railgun, plasma, and ion systems. 
+      Unlike many high-energy materials, it does not explode when damaged, but damage will quickly render the entire cartridge unusable. 
+      * Produces distilled water as a byproduct after use. Not intended for consumption or reuse — dispose properly.</description>
     <ammoClass>Laser</ammoClass> <!-- Projectile define RealDamage -->
     <statBases>
       <Mass>0.0035</Mass>  <!-- 3.5 g/ea -->
@@ -38,6 +34,7 @@
     <thingCategories>
       <li>AmmoCategory_H2_Fuel_Cell</li>
     </thingCategories>
+    <category>Item</category>
   </ThingDef>
 
 <!--
@@ -148,7 +145,7 @@ EN) Intent of this AmmoSet
   </ThingDef>
   
   <!-- ===== Rifle profile: 현대 보병 수준의 교전 능력 / modern infantry level combat capability ===== -->
-  <ThingDef ParentName="Proj_H2_Fuel_Cell_Base">
+  <ThingDef Class="CombatExtended.Lasers.LaserBeamDefCE" Name="Proj_H2_Fuel_Cell_Rifle" ParentName="Proj_H2_Fuel_Cell_Base">
     <defName>Proj_H2_Fuel_Cell_Rifle</defName>
     <label>H2 fuel cell rifle beam</label>
     <projectile Class="CombatExtended.ProjectilePropertiesCE">
@@ -181,7 +178,7 @@ EN) Intent of this AmmoSet
 
     <!-- ===== Squad Support profile: 제한된 장갑화된 표적에 대한 대응, 화력 지원무기 / limited anti-armor, firepower support weapon ===== -->
     <!-- Have purpose to target on penetrate cataphract armor -->
-    <ThingDef ParentName="Proj_H2_Fuel_Cell_Base">
+    <ThingDef Class="CombatExtended.Lasers.LaserBeamDefCE" Name="Proj_H2_Fuel_Cell_Squad_Support" ParentName="Proj_H2_Fuel_Cell_Base">
         <defName>Proj_H2_Fuel_Cell_Squad_Support</defName>
         <label>H2 fuel cell squad support beam</label>
         <projectile Class="CombatExtended.ProjectilePropertiesCE">
@@ -207,7 +204,7 @@ EN) Intent of this AmmoSet
 
   <!-- ===== Anti-Materiel profile: 대 차량, 중장갑 대상 / anti-vehicle, heavy armor target ===== -->
   <!-- Have purpose to target on modded 100mm armor, vehicle or any other extreme level armor can fight with in spacer tech-->
-  <ThingDef ParentName="Proj_H2_Fuel_Cell_Base">
+  <ThingDef Class="CombatExtended.Lasers.LaserBeamDefCE" Name="Proj_H2_Fuel_Cell_Anti_Materiel" ParentName="Proj_H2_Fuel_Cell_Base">
     <defName>Proj_H2_Fuel_Cell_Anti_Materiel</defName>
     <label>H2 fuel cell anti-materiel beam</label>
     <projectile Class="CombatExtended.ProjectilePropertiesCE">

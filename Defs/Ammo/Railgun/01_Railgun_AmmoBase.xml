@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
     <!-- Defs\Ammo\ThingCategories.xml -->
 	<!-- <ThingCategoryDef>
-		<defName>AmmoRailgun</defName>
-		<label>railgun</label>
+		<defName>AmmoRailGun</defName>
+		<label>RailGun</label>
 		<parent>Ammo</parent>
 		<iconPath>UI/Icons/ThingCategories/CaliberRailgunRifle</iconPath>
 	</ThingCategoryDef> -->
-
     <ThingDef Class="CombatExtended.AmmoDef" ParentName="SpacerAmmoBase" Abstract="True" Name="Ammo_RailgunKE_Base">
         <label>railgun KE (base)</label>
         <description>Electromagnetically-launched Railgun projectile.</description>
@@ -32,14 +30,12 @@
         <!--check Defs\Ammo\AmmoCategoryDefs\AmmoCategories_Advanced.xml -->
         <ammoClass>RailgunSabot</ammoClass>
         <stackLimit>500</stackLimit>
+        <category>Item</category>
     </ThingDef>
-      
-    
     <ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_RailgunKE_Base" Abstract="True" Name="Ammo_RailgunKE_Base_Charged">
         <label>railgun KE charged (base)</label>
         <description>Electromagnetically-launched Railgun projectile. Fuel Cell Charged.</description>
     </ThingDef>
-    
     <ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_RailgunKE_Base" Abstract="True" Name="Ammo_RailgunKE_Base_Uncharged">
         <label>railgun KE uncharged (base)</label>
         <description>Electromagnetically-launched Railgun projectile. Fuel Cell uncharged.</description>

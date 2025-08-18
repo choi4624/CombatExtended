@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
 	<!-- ==================== Ammo ========================== -->
-
 	<!-- charged ammo and uncharged ammo are same base ammo. But Tech level is different. -->
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_RailgunKE_Base_Charged">
-		<defName>Ammo_2x4mm_Railgun_charged</defName>
+		<defName>Ammo_2x4mmRailgun_charged</defName>
 		<label>2×4mm railgun KE-Charged</label>
 		<statBases><Mass>0.008</Mass></statBases>
 		<costList><Steel>20</Steel><Uranium>40</Uranium><Ammo_H2_Fuel_Cell>500</Ammo_H2_Fuel_Cell></costList>
 	  </ThingDef>
-	  
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_RailgunKE_Base_Uncharged">
-		<defName>Ammo_2x4mm_Railgun_uncharged</defName>
+		<defName>Ammo_2x4mmRailgun_uncharged</defName>
 		<label>2×4mm railgun KE-Uncharged</label>
 		<statBases><Mass>0.003</Mass></statBases>
 		<costList><Uranium>40</Uranium><Steel>20</Steel></costList>
@@ -24,43 +21,38 @@
 		<defName>AmmoSet_2x4mmUncharged_M6_Railgun</defName>
 		<label>2×4mm railgun (uncharged, Mach 6)</label>
 		<ammoTypes Inherit="False">
-		  <Ammo_2x4mmRailgun_Uncharged>Ammo_2x4mmRailgun_Uncharged</Ammo_2x4mmRailgun_Uncharged>
+		  <Ammo_2x4mmRailgun_Uncharged>Bullet_2x4mm_KE_M6_Railgun</Ammo_2x4mmRailgun_Uncharged>
 		</ammoTypes>
 	  </CombatExtended.AmmoSetDef>
-	  
+
 	  <CombatExtended.AmmoSetDef ParentName="AmmoSet_RailgunKE_Base_Uncharged">
 		<defName>AmmoSet_2x4mmUncharged_M8_Railgun</defName>
 		<label>2×4mm railgun (uncharged, Mach 8)</label>
 		<ammoTypes Inherit="False">
-		  <Ammo_2x4mmRailgun_Uncharged>Ammo_2x4mmRailgun_Uncharged</Ammo_2x4mmRailgun_Uncharged>
+		  <Ammo_2x4mmRailgun_Uncharged>Bullet_2x4mm_KE_M8_Railgun</Ammo_2x4mmRailgun_Uncharged>
 		</ammoTypes>
 	  </CombatExtended.AmmoSetDef>
-	  
 	  <CombatExtended.AmmoSetDef ParentName="AmmoSet_RailgunKE_Base_Charged">
 		<defName>AmmoSet_2x4mmCharged_M6_Railgun</defName>
 		<label>2×4mm railgun (charged, Mach 6)</label>
 		<ammoTypes Inherit="False">
-		  <Ammo_2x4mmRailgun_Charged>Ammo_2x4mmRailgun_Charged</Ammo_2x4mmRailgun_Charged>
+		  <Ammo_2x4mmRailgun_Charged>Bullet_2x4mm_KE_M6_Railgun</Ammo_2x4mmRailgun_Charged>
 		</ammoTypes>
 	  </CombatExtended.AmmoSetDef>
-	  
 	  <CombatExtended.AmmoSetDef ParentName="AmmoSet_RailgunKE_Base_Charged">
 		<defName>AmmoSet_2x4mmCharged_M8_Railgun</defName>
 		<label>2×4mm railgun (charged, Mach 8)</label>
 		<ammoTypes Inherit="False">
-		  <Ammo_2x4mmRailgun_Charged>Ammo_2x4mmRailgun_Charged</Ammo_2x4mmRailgun_Charged>
+		  <Ammo_2x4mmRailgun_Charged>Bullet_2x4mm_KE_M8_Railgun</Ammo_2x4mmRailgun_Charged>
 		</ammoTypes>
 	  </CombatExtended.AmmoSetDef>
-
+	  
 	<!-- ==================== Ammo ========================== -->
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_RailgunKE_Base_Charged">
 		<defName>Ammo_2x4mmRailgun_Charged</defName>
 		<label>2x4mm Railgun (KE-Charged)</label>
-		<description>
-			High-density penetrator alloy made from depleted uranium and reinforced with small amounts of steel. 
-			Extremely dense and self-sharpening under impact, designed for railgun kinetic energy rounds.
-			Fuel Cell Charged.
-		</description>
+		<description>High-density penetrator alloy made from depleted uranium and reinforced with small amounts of steel. Extremely dense and self-sharpening under impact, designed for railgun kinetic energy rounds. 
+			Fuel Cell Charged.</description>
 		<statBases>
 			<Mass>0.008</Mass>
 			<Bulk>0.008</Bulk>
@@ -70,23 +62,16 @@
 			<li>CE_AutoEnableCrafting_FabricationBench</li>
 			<!-- Railgun ammo isn't handloaded because it contains no propellant, and the sabots must be precision-machined anyway -->
 		</tradeTags>
-		<thingCategories>
-			<li>AmmoRailgun</li>
-		</thingCategories>
 		<graphicData>
 			<texPath>Things/Ammo/Railgun/Rifle</texPath>
 			<graphicClass>CombatExtended.Graphic_StackCountRanged</graphicClass>
 		</graphicData>
 	</ThingDef>
-
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_RailgunKE_Base_Uncharged">
 		<defName>Ammo_2x4mmRailgun_Uncharged</defName>
 		<label>2x4mm Railgun (KE-Uncharged)</label>
-		<description>
-			High-density penetrator alloy made from depleted uranium and reinforced with small amounts of steel. 
-			Extremely dense and self-sharpening under impact, designed for railgun kinetic energy rounds.
-			Fuel Cell Uncharged.
-		</description>
+		<description>High-density penetrator alloy made from depleted uranium and reinforced with small amounts of steel. Extremely dense and self-sharpening under impact, designed for railgun kinetic energy rounds. 
+			Fuel Cell Uncharged.</description>
 		<statBases>
 			<Mass>0.003</Mass>
 			<Bulk>0.003</Bulk>
@@ -96,15 +81,11 @@
 			<li>CE_AutoEnableCrafting_FabricationBench</li>
 			<!-- Railgun ammo isn't handloaded because it contains no propellant, and the sabots must be precision-machined anyway -->
 		</tradeTags>
-		<thingCategories>
-			<li>AmmoRailgun</li>
-		</thingCategories>
 		<graphicData>
 			<texPath>Things/Ammo/Railgun/Rifle</texPath>
 			<graphicClass>CombatExtended.Graphic_StackCountRanged</graphicClass>
 		</graphicData>
 	</ThingDef>
-
 	<!-- ================== Projectiles ================== -->
 	<ThingDef ParentName="Proj_RailgunKE_Base">
 		<defName>Bullet_2x4mm_KE_M6_Railgun</defName>
@@ -115,7 +96,6 @@
 		  <speed>300</speed>
 		</projectile>
 	  </ThingDef>
-	  
 	  <ThingDef ParentName="Proj_RailgunKE_Base">
 		<defName>Bullet_2x4mm_KE_M8_Railgun</defName>
 		<label>2×4mm KE (M8)</label>
@@ -125,7 +105,6 @@
 		  <speed>340</speed>
 		</projectile>
 	  </ThingDef>
-
 	<!-- ==================== Recipes ========================== -->
 	<RecipeDef ParentName="AmmoRecipeBase">
 		<defName>MakeAmmo_2x4mmRailgun_KE_Charged</defName>
@@ -170,7 +149,6 @@
 			<Ammo_2x4mmRailgun_Charged>500</Ammo_2x4mmRailgun_Charged>
 		</products>
 	</RecipeDef>
-
 	<RecipeDef ParentName="AmmoRecipeBase">
 		<defName>MakeAmmo_2x4mmRailgun_KE_Uncharged</defName>
 		<label>make 2x4mm Railgun KE-Uncharged x500</label>
@@ -205,5 +183,4 @@
 			<Ammo_2x4mmRailgun_Uncharged>500</Ammo_2x4mmRailgun_Uncharged>
 		</products>
 	</RecipeDef>
-
 </Defs>

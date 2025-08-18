@@ -6,12 +6,10 @@
         <ammoTypes>
         </ammoTypes>
     </CombatExtended.AmmoSetDef>
-    
     <CombatExtended.AmmoSetDef Abstract="True" Name="AmmoSet_RailgunKE_Base_Uncharged">
         <defName>AmmoSet_RailgunKE_Base_Uncharged</defName>
         <label>railgun KE (base)</label>
         <ammoTypes>
-    
         </ammoTypes>
     </CombatExtended.AmmoSetDef>
 </Defs>
