@@ -20,14 +20,14 @@
 		<defName>AmmoRailgun</defName>
 		<label>railgun</label>
 		<parent>Ammo</parent>
-		<iconPath>UI/Icons/ThingCategories/AmmoRailgun</iconPath>
+		<iconPath>UI/Icons/ThingCategories/CaliberRailgunRifle</iconPath>
 	</ThingCategoryDef>
 
 	<ThingCategoryDef>
 		<defName>AmmoLaser</defName>
 		<label>laser</label>
 		<parent>Ammo</parent>
-		<iconPath>UI/Icons/ThingCategories/AmmoLaser</iconPath>
+		<iconPath>UI/Icons/ThingCategories/CaliberPlasmaLarge</iconPath>
 	</ThingCategoryDef>
 
 	<ThingCategoryDef>

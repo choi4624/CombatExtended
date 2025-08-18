@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
+
+    <!-- Defs\Ammo\ThingCategories.xml -->
+	<!-- <ThingCategoryDef>
+		<defName>AmmoRailgun</defName>
+		<label>railgun</label>
+		<parent>Ammo</parent>
+		<iconPath>UI/Icons/ThingCategories/CaliberRailgunRifle</iconPath>
+	</ThingCategoryDef> -->
+
     <ThingDef Class="CombatExtended.AmmoDef" ParentName="SpacerAmmoBase" Abstract="True" Name="Ammo_RailgunKE_Base">
         <label>railgun KE (base)</label>
         <description>Electromagnetically-launched Railgun projectile.</description>

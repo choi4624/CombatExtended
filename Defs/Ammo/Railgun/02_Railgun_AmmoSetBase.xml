@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <CombatExtended.AmmoSetDef Abstract="True" Name="AmmoSet_RailgunKE_Base">
+    <CombatExtended.AmmoSetDef Abstract="True" Name="AmmoSet_RailgunKE_Base_Charged">
         <defName>AmmoSet_RailgunKE_Base_Charged</defName>
         <label>railgun KE (base)</label>
         <ammoTypes>
