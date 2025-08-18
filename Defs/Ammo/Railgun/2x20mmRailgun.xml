@@ -6,14 +6,14 @@
 	<!-- ==================== Ammo ========================== -->
 	<!-- charged ammo and uncharged ammo are same base ammo. But Tech level is different. -->
 	<!-- <ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_RailgunKE_Base_Charged">
-		<defName>Ammo_2x4mmRailgun_charged</defName>
-		<label>2×4mm railgun KE-Charged</label>
+		<defName>Ammo_2x20mmRailgun_charged</defName>
+		<label>2x20mm railgun KE-Charged</label>
 		<statBases><Mass>0.008</Mass></statBases>
 		<costList><Steel>20</Steel><Uranium>40</Uranium><Ammo_H2_Fuel_Cell>500</Ammo_H2_Fuel_Cell></costList>
 	  </ThingDef>
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_RailgunKE_Base_Uncharged">
-		<defName>Ammo_2x4mmRailgun_uncharged</defName>
-		<label>2×4mm railgun KE-Uncharged</label>
+		<defName>Ammo_2x20mmRailgun_uncharged</defName>
+		<label>2x20mm railgun KE-Uncharged</label>
 		<statBases><Mass>0.003</Mass></statBases>
 		<costList><Uranium>40</Uranium><Steel>20</Steel></costList>
 	</ThingDef> -->
@@ -21,39 +21,39 @@
 	<!-- ==================== AmmoSet ========================== -->
 	<!-- Weapon's AmmoSet and Projectile are Same -->
 	<CombatExtended.AmmoSetDef ParentName="AmmoSet_RailgunKE_Base_Uncharged">
-		<defName>AmmoSet_2x4mmUncharged_M6_Railgun</defName>
-		<label>2×4mm railgun - Mach6 uncharged</label>
+		<defName>AmmoSet_2x20mmUncharged_M6_Railgun</defName>
+		<label>2x20mm railgun - Mach6 uncharged</label>
 		<ammoTypes Inherit="False">
-		  <Ammo_2x4mmRailgun_Uncharged>Bullet_2x4mm_KE_M6_Railgun</Ammo_2x4mmRailgun_Uncharged>
+		  <Ammo_2x20mmRailgun_Uncharged>Bullet_2x20mm_KE_M6_Railgun</Ammo_2x20mmRailgun_Uncharged>
 		</ammoTypes>
 	  </CombatExtended.AmmoSetDef>
 
 	  <CombatExtended.AmmoSetDef ParentName="AmmoSet_RailgunKE_Base_Uncharged">
-		<defName>AmmoSet_2x4mmUncharged_M8_Railgun</defName>
-		<label>2×4mm railgun - Mach8 uncharged</label>
+		<defName>AmmoSet_2x20mmUncharged_M8_Railgun</defName>
+		<label>2x20mm railgun - Mach8 uncharged</label>
 		<ammoTypes Inherit="False">
-		  <Ammo_2x4mmRailgun_Uncharged>Bullet_2x4mm_KE_M8_Railgun</Ammo_2x4mmRailgun_Uncharged>
+		  <Ammo_2x20mmRailgun_Uncharged>Bullet_2x20mm_KE_M8_Railgun</Ammo_2x20mmRailgun_Uncharged>
 		</ammoTypes>
 	  </CombatExtended.AmmoSetDef>
 	  <CombatExtended.AmmoSetDef ParentName="AmmoSet_RailgunKE_Base_Charged">
-		<defName>AmmoSet_2x4mmCharged_M6_Railgun</defName>
-		<label>2×4mm railgun - Mach6 charged</label>
+		<defName>AmmoSet_2x20mmCharged_M6_Railgun</defName>
+		<label>2x20mm railgun - Mach6 charged</label>
 		<ammoTypes Inherit="False">
-		  <Ammo_2x4mmRailgun_Charged>Bullet_2x4mm_KE_M6_Railgun</Ammo_2x4mmRailgun_Charged>
+		  <Ammo_2x20mmRailgun_Charged>Bullet_2x20mm_KE_M6_Railgun</Ammo_2x20mmRailgun_Charged>
 		</ammoTypes>
 	  </CombatExtended.AmmoSetDef>
 	  <CombatExtended.AmmoSetDef ParentName="AmmoSet_RailgunKE_Base_Charged">
-		<defName>AmmoSet_2x4mmCharged_M8_Railgun</defName>
-		<label>2×4mm railgun - Mach8 charged</label>
+		<defName>AmmoSet_2x20mmCharged_M8_Railgun</defName>
+		<label>2x20mm railgun - Mach8 charged</label>
 		<ammoTypes Inherit="False">
-		  <Ammo_2x4mmRailgun_Charged>Bullet_2x4mm_KE_M8_Railgun</Ammo_2x4mmRailgun_Charged>
+		  <Ammo_2x20mmRailgun_Charged>Bullet_2x20mm_KE_M8_Railgun</Ammo_2x20mmRailgun_Charged>
 		</ammoTypes>
 	  </CombatExtended.AmmoSetDef>
 
 	<!-- ==================== Ammo ========================== -->
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_RailgunKE_Base_Charged">
-		<defName>Ammo_2x4mmRailgun_Charged</defName>
-		<label>2x4mm Railgun (KE-Charged)</label>
+		<defName>Ammo_2x20mmRailgun_Charged</defName>
+		<label>2x20mm Railgun(KE-Charged)</label>
 		<statBases>
 			<Mass>0.008</Mass>
 			<Bulk>0.008</Bulk>
@@ -64,8 +64,8 @@
 		</graphicData>
 	</ThingDef>
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_RailgunKE_Base_Uncharged">
-		<defName>Ammo_2x4mmRailgun_Uncharged</defName>
-		<label>2x4mm Railgun (KE-Uncharged)</label>
+		<defName>Ammo_2x20mmRailgun_Uncharged</defName>
+		<label>2x20mm Railgun(KE-Uncharged)</label>
 		<statBases>
 			<Mass>0.003</Mass>
 			<Bulk>0.003</Bulk>
@@ -77,8 +77,8 @@
 	</ThingDef>
 	<!-- ================== Projectiles ================== -->
 	<ThingDef ParentName="Proj_RailgunKE_Base">
-		<defName>Bullet_2x4mm_KE_M6_Railgun</defName>
-		<label>2×4mm KE (M6)</label>
+		<defName>Bullet_2x20mm_KE_M6_Railgun</defName>
+		<label>2x20mm KE (M6)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 		  <damageAmountBase>6</damageAmountBase>
 		  <armorPenetrationSharp>18</armorPenetrationSharp>
@@ -86,8 +86,8 @@
 		</projectile>
 	  </ThingDef>
 	  <ThingDef ParentName="Proj_RailgunKE_Base">
-		<defName>Bullet_2x4mm_KE_M8_Railgun</defName>
-		<label>2×4mm KE (M8)</label>
+		<defName>Bullet_2x20mm_KE_M8_Railgun</defName>
+		<label>2x20mm KE (M8)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 		  <damageAmountBase>6</damageAmountBase>
 		  <armorPenetrationSharp>24.6</armorPenetrationSharp>
@@ -96,10 +96,10 @@
 	  </ThingDef>
 	<!-- ==================== Recipes ========================== -->
 	<RecipeDef ParentName="AmmoRecipeBase">
-		<defName>MakeAmmo_2x4mmRailgun_Charged</defName>
-		<label>make 2x4mm Railgun KE-Charged x500</label>
-		<description>Craft 500 2x4mm Railgun KE-Charged cartridges.</description>
-		<jobString>Making 2x4mm Railgun KE-Charged cartridges.</jobString>
+		<defName>MakeAmmo_2x20mmRailgun_Charged</defName>
+		<label>make 2x20mm Railgun KE-Charged x500</label>
+		<description>Craft 500 2x20mm Railgun KE-Charged cartridges.</description>
+		<jobString>Making 2x20mm Railgun KE-Charged cartridges.</jobString>
 		<workAmount>6000</workAmount>
 		<ingredients>
 			<li>
@@ -123,14 +123,14 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Ammo_2x4mmRailgun_Charged>500</Ammo_2x4mmRailgun_Charged>
+			<Ammo_2x20mmRailgun_Charged>500</Ammo_2x20mmRailgun_Charged>
 		</products>
 	</RecipeDef>
 	<RecipeDef ParentName="AmmoRecipeBase">
-		<defName>MakeAmmo_2x4mmRailgun_Uncharged</defName>
-		<label>make 2x4mm Railgun KE-Uncharged x500</label>
-		<description>Craft 500 2x4mm Railgun KE-Uncharged cartridges.</description>
-		<jobString>Making 2x4mm Railgun KE-Uncharged cartridges.</jobString>
+		<defName>MakeAmmo_2x20mmRailgun_Uncharged</defName>
+		<label>make 2x20mm Railgun KE-Uncharged x500</label>
+		<description>Craft 500 2x20mm Railgun KE-Uncharged cartridges.</description>
+		<jobString>Making 2x20mm Railgun KE-Uncharged cartridges.</jobString>
 		<workAmount>6000</workAmount>
 		<ingredients>
 			<li>
@@ -157,7 +157,7 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Ammo_2x4mmRailgun_Uncharged>500</Ammo_2x4mmRailgun_Uncharged>
+			<Ammo_2x20mmRailgun_Uncharged>500</Ammo_2x20mmRailgun_Uncharged>
 		</products>
 	</RecipeDef>
 </Defs>
