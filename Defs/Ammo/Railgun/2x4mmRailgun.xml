@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
+    <!-- to copy this and reuse, copy 01, 02 Railgun Base.xml or use ParentName="Ammo_RailgunKE_Base_Charged" -->
+	<!-- Charged ammo is expensive, spacer tech. Uncharged ammo is cheap, ultra tech -->
+	
 	<!-- ==================== Ammo ========================== -->
 	<!-- charged ammo and uncharged ammo are same base ammo. But Tech level is different. -->
-	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_RailgunKE_Base_Charged">
+	<!-- <ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_RailgunKE_Base_Charged">
 		<defName>Ammo_2x4mmRailgun_charged</defName>
 		<label>2×4mm railgun KE-Charged</label>
 		<statBases><Mass>0.008</Mass></statBases>
@@ -13,13 +16,13 @@
 		<label>2×4mm railgun KE-Uncharged</label>
 		<statBases><Mass>0.003</Mass></statBases>
 		<costList><Uranium>40</Uranium><Steel>20</Steel></costList>
-	</ThingDef>
+	</ThingDef> -->
 
 	<!-- ==================== AmmoSet ========================== -->
 	<!-- Weapon's AmmoSet and Projectile are Same -->
 	<CombatExtended.AmmoSetDef ParentName="AmmoSet_RailgunKE_Base_Uncharged">
 		<defName>AmmoSet_2x4mmUncharged_M6_Railgun</defName>
-		<label>2×4mm railgun (uncharged, Mach 6)</label>
+		<label>2×4mm railgun - Mach6 uncharged</label>
 		<ammoTypes Inherit="False">
 		  <Ammo_2x4mmRailgun_Uncharged>Bullet_2x4mm_KE_M6_Railgun</Ammo_2x4mmRailgun_Uncharged>
 		</ammoTypes>
@@ -27,21 +30,21 @@
 
 	  <CombatExtended.AmmoSetDef ParentName="AmmoSet_RailgunKE_Base_Uncharged">
 		<defName>AmmoSet_2x4mmUncharged_M8_Railgun</defName>
-		<label>2×4mm railgun (uncharged, Mach 8)</label>
+		<label>2×4mm railgun - Mach8 uncharged</label>
 		<ammoTypes Inherit="False">
 		  <Ammo_2x4mmRailgun_Uncharged>Bullet_2x4mm_KE_M8_Railgun</Ammo_2x4mmRailgun_Uncharged>
 		</ammoTypes>
 	  </CombatExtended.AmmoSetDef>
 	  <CombatExtended.AmmoSetDef ParentName="AmmoSet_RailgunKE_Base_Charged">
 		<defName>AmmoSet_2x4mmCharged_M6_Railgun</defName>
-		<label>2×4mm railgun (charged, Mach 6)</label>
+		<label>2×4mm railgun - Mach6 charged</label>
 		<ammoTypes Inherit="False">
 		  <Ammo_2x4mmRailgun_Charged>Bullet_2x4mm_KE_M6_Railgun</Ammo_2x4mmRailgun_Charged>
 		</ammoTypes>
 	  </CombatExtended.AmmoSetDef>
 	  <CombatExtended.AmmoSetDef ParentName="AmmoSet_RailgunKE_Base_Charged">
 		<defName>AmmoSet_2x4mmCharged_M8_Railgun</defName>
-		<label>2×4mm railgun (charged, Mach 8)</label>
+		<label>2×4mm railgun - Mach8 charged</label>
 		<ammoTypes Inherit="False">
 		  <Ammo_2x4mmRailgun_Charged>Bullet_2x4mm_KE_M8_Railgun</Ammo_2x4mmRailgun_Charged>
 		</ammoTypes>
@@ -55,11 +58,6 @@
 			<Mass>0.008</Mass>
 			<Bulk>0.008</Bulk>
 		</statBases>
-		<tradeTags>
-			<li>CE_AutoEnableTrade</li>
-			<li>CE_AutoEnableCrafting_FabricationBench</li>
-			<!-- Railgun ammo isn't handloaded because it contains no propellant, and the sabots must be precision-machined anyway -->
-		</tradeTags>
 		<graphicData>
 			<texPath>Things/Ammo/Railgun/Rifle</texPath>
 			<graphicClass>CombatExtended.Graphic_StackCountRanged</graphicClass>
@@ -72,11 +70,6 @@
 			<Mass>0.003</Mass>
 			<Bulk>0.003</Bulk>
 		</statBases>
-		<tradeTags>
-			<li>CE_AutoEnableTrade</li>
-			<li>CE_AutoEnableCrafting_FabricationBench</li>
-			<!-- Railgun ammo isn't handloaded because it contains no propellant, and the sabots must be precision-machined anyway -->
-		</tradeTags>
 		<graphicData>
 			<texPath>Things/Ammo/Railgun/Rifle</texPath>
 			<graphicClass>CombatExtended.Graphic_StackCountRanged</graphicClass>
@@ -88,8 +81,8 @@
 		<label>2×4mm KE (M6)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 		  <damageAmountBase>6</damageAmountBase>
-		  <armorPenetrationSharp>20</armorPenetrationSharp>
-		  <speed>300</speed>
+		  <armorPenetrationSharp>18</armorPenetrationSharp>
+		  <speed>356</speed>
 		</projectile>
 	  </ThingDef>
 	  <ThingDef ParentName="Proj_RailgunKE_Base">
@@ -97,40 +90,28 @@
 		<label>2×4mm KE (M8)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 		  <damageAmountBase>6</damageAmountBase>
-		  <armorPenetrationSharp>26</armorPenetrationSharp>
-		  <speed>340</speed>
+		  <armorPenetrationSharp>24.6</armorPenetrationSharp>
+		  <speed>450</speed>
 		</projectile>
 	  </ThingDef>
 	<!-- ==================== Recipes ========================== -->
-	<RecipeDef ParentName="ChargeAmmoRecipeBase">
-		<defName>MakeAmmo_2x4mmRailgun_KE_Charged</defName>
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_2x4mmRailgun_Charged</defName>
 		<label>make 2x4mm Railgun KE-Charged x500</label>
 		<description>Craft 500 2x4mm Railgun KE-Charged cartridges.</description>
 		<jobString>Making 2x4mm Railgun KE-Charged cartridges.</jobString>
-		<workAmount>8000</workAmount>
+		<workAmount>6000</workAmount>
 		<ingredients>
 			<li>
-				<filter>
-					<thingDefs>
-						<li>Steel</li>
-					</thingDefs>
-				</filter>
+				<filter><thingDefs><li>Steel</li></thingDefs></filter>
 				<count>20</count>
 			</li>
 			<li>
-				<filter>
-					<thingDefs>
-						<li>Uranium</li>
-					</thingDefs>
-				</filter>
+				<filter><thingDefs><li>Uranium</li></thingDefs></filter>
 				<count>40</count>
 			</li>
 			<li>
-				<filter>
-					<thingDefs>
-						<li>Ammo_H2_Fuel_Cell</li>
-					</thingDefs>
-				</filter>
+				<filter><thingDefs><li>Ammo_H2_Fuel_Cell</li></thingDefs></filter>
 				<count>500</count>
 			</li>
 		</ingredients>
@@ -145,12 +126,12 @@
 			<Ammo_2x4mmRailgun_Charged>500</Ammo_2x4mmRailgun_Charged>
 		</products>
 	</RecipeDef>
-	<RecipeDef ParentName="ChargeAmmoRecipeBase">
-		<defName>MakeAmmo_2x4mmRailgun_KE_Uncharged</defName>
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_2x4mmRailgun_Uncharged</defName>
 		<label>make 2x4mm Railgun KE-Uncharged x500</label>
 		<description>Craft 500 2x4mm Railgun KE-Uncharged cartridges.</description>
 		<jobString>Making 2x4mm Railgun KE-Uncharged cartridges.</jobString>
-		<workAmount>8000</workAmount>
+		<workAmount>6000</workAmount>
 		<ingredients>
 			<li>
 				<filter>

@@ -6,10 +6,6 @@
     <label>H2 fuel cell</label>
     <parent>AmmoAdvanced</parent>
     <iconPath>UI/Icons/ThingCategories/CaliberPlasmaLarge</iconPath>
-    <costList>
-      <Chemfuel>1000</Chemfuel>
-      <ComponentSpacer>1</ComponentSpacer>
-    </costList>
   </ThingCategoryDef>
 
   <!-- ===== Ammo (KR: 공용 H2 셀 1종 / EN: single shared ammo) ===== -->
@@ -243,7 +239,7 @@ EN) Intent of this AmmoSet
     <products>
       <Ammo_H2_Fuel_Cell>1000</Ammo_H2_Fuel_Cell>
     </products>
-    <workAmount>12000</workAmount>
+    <workAmount>48000</workAmount>
   </RecipeDef>
 
 </Defs>

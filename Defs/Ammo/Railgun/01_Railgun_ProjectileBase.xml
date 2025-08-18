@@ -13,8 +13,8 @@
           <damageAmountBase>10.00</damageAmountBase>
           <armorPenetrationSharp>10.00</armorPenetrationSharp>
           <armorPenetrationBlunt>10.00</armorPenetrationBlunt>
-          <!-- faster than 3x normal bullet -->
-          <speed>480</speed>
+          <!-- faster than 3x normal bullet, 2x charge lance -->
+          <speed>356</speed>
           <!-- stoppingPower is similar with normal bullet. -->
           <stoppingPower>0.55</stoppingPower>
         </projectile>

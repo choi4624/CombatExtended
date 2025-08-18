@@ -15,13 +15,13 @@
             <Mass>0.004</Mass>
             <Bulk>0.01</Bulk>
         </statBases>
-        <thingCategories>
-          <li>AmmoRailgun</li>
-        </thingCategories>
         <tradeTags>
             <li>CE_AutoEnableTrade</li>
             <li>CE_AutoEnableCrafting_FabricationBench</li>
-          </tradeTags>
+        </tradeTags>
+        <thingCategories>
+          <li>AmmoRailgun</li>
+        </thingCategories>
         <graphicData>
           <texPath>Things/Ammo/Railgun/Rifle</texPath>
           <graphicClass>CombatExtended.Graphic_StackCountRanged</graphicClass>
@@ -30,7 +30,6 @@
         <!--check Defs\Ammo\AmmoCategoryDefs\AmmoCategories_Advanced.xml -->
         <ammoClass>RailgunSabot</ammoClass>
         <stackLimit>500</stackLimit>
-        <category>Item</category>
     </ThingDef>
     <ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_RailgunKE_Base" Abstract="True" Name="Ammo_RailgunKE_Base_Charged">
         <label>railgun KE charged (base)</label>
