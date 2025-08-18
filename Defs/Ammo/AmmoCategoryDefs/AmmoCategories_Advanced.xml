@@ -102,9 +102,10 @@
 
 	<CombatExtended.AmmoCategoryDef>
 		<defName>RailgunSabot</defName>
-		<label>Railgun sabot</label>
-		<labelShort>Sabot</labelShort>
-		<description>Uses a discarding sabot to fire an undersized projectile at higher muzzle velocities, greatly improving armor penetration.</description>
+		<label>Railgun Kinetic Energy</label>
+		<labelShort>Kinetic Energy</labelShort> 
+		<!-- Consider Railgun does not use sabot. But for backward compatibility keep definition and only change label and description -->
+		<description>Electromagnetically-launched kinetic energy projectiles. At above Mach 5 impact speeds, the penetrator breaks through armor through momentum and density.</description>
 		<advanced>true</advanced>
 	</CombatExtended.AmmoCategoryDef>
 
