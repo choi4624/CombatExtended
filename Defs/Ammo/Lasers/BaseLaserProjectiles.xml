@@ -38,6 +38,7 @@
 		</textures>
 	</ThingDef>
 
+	<!--ColorLaser is based on BaseLaserBulletTextured -->
 	<!-- ================== White Laser ================== -->
 	<ThingDef Class="CombatExtended.Lasers.LaserBeamDefCE" Name="LaserBulletWhite" ParentName="BaseLaserBulletTextured" Abstract="True">
 		<graphicData>
@@ -79,5 +80,27 @@
 			<color>(128,49,167)</color>
 		</graphicData>
 	</ThingDef>
+
+	<!-- ================== Cyan Laser ================== -->
+	<ThingDef Class="CombatExtended.Lasers.LaserBeamDefCE" Name="LaserBulletCyan" ParentName="BaseLaserBulletTextured" Abstract="True">
+		<graphicData>
+			<color>(0,245,245)</color>
+		</graphicData>
+	</ThingDef>
+
+	<!-- ================== Orange Laser ================== -->
+	<ThingDef Class="CombatExtended.Lasers.LaserBeamDefCE" Name="LaserBulletOrange" ParentName="BaseLaserBulletTextured" Abstract="True">
+		<graphicData>
+			<color>(240,165,0)</color>
+		</graphicData>
+	</ThingDef>
+
+	<!-- ================== Pink Laser ================== -->
+	<ThingDef Class="CombatExtended.Lasers.LaserBeamDefCE" Name="LaserBulletPink" ParentName="BaseLaserBulletTextured" Abstract="True">
+		<graphicData>
+			<color>(250,153,250)</color>
+		</graphicData>
+	</ThingDef>
+
 
 </Defs>

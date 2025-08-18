@@ -34,10 +34,14 @@
     </ThingDef>
     <ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_RailgunKE_Base" Abstract="True" Name="Ammo_RailgunKE_Base_Charged">
         <label>railgun KE charged (base)</label>
-        <description>Electromagnetically-launched Railgun projectile. Fuel Cell Charged.</description>
+		<description>High-density penetrator alloy made from depleted depleted uranium and small amounts of steel. 
+			Extremely dense and self-sharpening under impact, designed for railgun kinetic energy rounds. 
+			\nFuel Cell Charged.</description>
     </ThingDef>
     <ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_RailgunKE_Base" Abstract="True" Name="Ammo_RailgunKE_Base_Uncharged">
         <label>railgun KE uncharged (base)</label>
-        <description>Electromagnetically-launched Railgun projectile. Fuel Cell uncharged.</description>
+		<description>High-density penetrator alloy made from depleted uranium and small amounts of steel. 
+			Extremely dense and self-sharpening under impact, designed for railgun kinetic energy rounds. 
+			\nFuel Cell Uncharged.</description>
     </ThingDef>
 </Defs>

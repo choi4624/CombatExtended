@@ -46,13 +46,11 @@
 		  <Ammo_2x4mmRailgun_Charged>Bullet_2x4mm_KE_M8_Railgun</Ammo_2x4mmRailgun_Charged>
 		</ammoTypes>
 	  </CombatExtended.AmmoSetDef>
-	  
+
 	<!-- ==================== Ammo ========================== -->
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_RailgunKE_Base_Charged">
 		<defName>Ammo_2x4mmRailgun_Charged</defName>
 		<label>2x4mm Railgun (KE-Charged)</label>
-		<description>High-density penetrator alloy made from depleted uranium and reinforced with small amounts of steel. Extremely dense and self-sharpening under impact, designed for railgun kinetic energy rounds. 
-			Fuel Cell Charged.</description>
 		<statBases>
 			<Mass>0.008</Mass>
 			<Bulk>0.008</Bulk>
@@ -70,8 +68,6 @@
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_RailgunKE_Base_Uncharged">
 		<defName>Ammo_2x4mmRailgun_Uncharged</defName>
 		<label>2x4mm Railgun (KE-Uncharged)</label>
-		<description>High-density penetrator alloy made from depleted uranium and reinforced with small amounts of steel. Extremely dense and self-sharpening under impact, designed for railgun kinetic energy rounds. 
-			Fuel Cell Uncharged.</description>
 		<statBases>
 			<Mass>0.003</Mass>
 			<Bulk>0.003</Bulk>
@@ -106,12 +102,12 @@
 		</projectile>
 	  </ThingDef>
 	<!-- ==================== Recipes ========================== -->
-	<RecipeDef ParentName="AmmoRecipeBase">
+	<RecipeDef ParentName="ChargeAmmoRecipeBase">
 		<defName>MakeAmmo_2x4mmRailgun_KE_Charged</defName>
 		<label>make 2x4mm Railgun KE-Charged x500</label>
 		<description>Craft 500 2x4mm Railgun KE-Charged cartridges.</description>
 		<jobString>Making 2x4mm Railgun KE-Charged cartridges.</jobString>
-		<workAmount>2000</workAmount>
+		<workAmount>8000</workAmount>
 		<ingredients>
 			<li>
 				<filter>
@@ -149,12 +145,12 @@
 			<Ammo_2x4mmRailgun_Charged>500</Ammo_2x4mmRailgun_Charged>
 		</products>
 	</RecipeDef>
-	<RecipeDef ParentName="AmmoRecipeBase">
+	<RecipeDef ParentName="ChargeAmmoRecipeBase">
 		<defName>MakeAmmo_2x4mmRailgun_KE_Uncharged</defName>
 		<label>make 2x4mm Railgun KE-Uncharged x500</label>
 		<description>Craft 500 2x4mm Railgun KE-Uncharged cartridges.</description>
 		<jobString>Making 2x4mm Railgun KE-Uncharged cartridges.</jobString>
-		<workAmount>2000</workAmount>
+		<workAmount>8000</workAmount>
 		<ingredients>
 			<li>
 				<filter>

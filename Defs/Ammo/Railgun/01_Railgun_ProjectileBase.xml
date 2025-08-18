@@ -2,17 +2,19 @@
 <Defs>
     <ThingDef ParentName="BaseBulletCE" Abstract="True" Name="Proj_RailgunKE_Base">
         <graphicData>
-          <texPath>Things/Projectile/Bullet_Small</texPath>
+          <!-- Railgun Projectile is looks like ChargeLanceShot, long tail shot -->
+          <texPath>Things/Projectile/ChargeLanceShot</texPath>
           <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <projectile Class="CombatExtended.ProjectilePropertiesCE">
           <damageDef>Bullet</damageDef>
           <!-- damage/AP/speed are set in the child defs -->
-          <!-- In Gameplay, speed is faster than normal bullet. -->
+          <!-- In Gameplay, speed is faster than normal bullet. Psycast skip, High move speed hard to evade this-->
           <damageAmountBase>10.00</damageAmountBase>
           <armorPenetrationSharp>10.00</armorPenetrationSharp>
           <armorPenetrationBlunt>10.00</armorPenetrationBlunt>
-          <speed>300</speed>
+          <!-- faster than 3x normal bullet -->
+          <speed>480</speed>
           <!-- stoppingPower is similar with normal bullet. -->
           <stoppingPower>0.55</stoppingPower>
         </projectile>
